@@ -14,7 +14,7 @@ export class ProductService {
     private http: HttpClient,
   ) { }
 
-  async getAllProducts() {
+  async getAllProducts(): Promise<Product[]> {
     try {
       const products = await firstValueFrom(this.http.get<Product[]>(this.API_URL + 'products'));
       return products;
@@ -22,5 +22,15 @@ export class ProductService {
       console.error(error);
     }
     return [];
+  }
+
+  async getProductDetails(productId: string): Promise<Product> {
+    try {
+      const product = await firstValueFrom(this.http.get<Product>(this.API_URL + 'products/' + productId));
+      return product;
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
   }
 }

@@ -16,4 +16,8 @@ export class UserService {
     this.user.role = role;
     this.user$.next(this.user);
   }
+
+  isLoggedIn(): boolean {
+    return this.user.role === 'User' || this.user.role === 'Admin';
+  }
 }

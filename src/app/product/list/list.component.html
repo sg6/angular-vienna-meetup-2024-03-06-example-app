@@ -13,7 +13,12 @@
     <tbody>
         @for (product of products; track $index) {
             <tr>
-                <th scope="row"> {{ product.id }} </th>
+                <th scope="row">
+                    {{ product.id }}
+                    <p>
+                        <a [routerLink]="['/product/detail', product.id]">Go to Product</a>
+                    </p>
+                </th>
                 <td>{{ product.product_name }}</td>
                 <td>{{ product.product_price | currency: 'EUR' }}</td>
                 <td>{{ product.suggested_retail_price | currency: 'EUR' }}</td>

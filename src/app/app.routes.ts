@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { PageNotFoundComponent } from './common/page-not-found/page-not-found.component';
 import { ProfileComponent } from './user/profile/profile.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
     {
@@ -23,6 +24,7 @@ export const routes: Routes = [
     {
         path: 'product/detail/:id',
         component: DetailComponent,
+        canActivate: [authGuard]
     },
     {
         path: 'admin/dashboard',

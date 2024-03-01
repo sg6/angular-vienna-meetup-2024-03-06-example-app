@@ -1,5 +1,13 @@
 <p>detail works!</p>
 
-@if (productId) {
-    <p>product id is {{ productId }}</p>
+@if (routeId) {
+    <p>product id is {{ routeId }}</p>
+}
+
+@if (routeId && product) {
+    <hr />
+}
+
+@if (product) {
+    <pre>{{ product | json }}</pre>
 }
