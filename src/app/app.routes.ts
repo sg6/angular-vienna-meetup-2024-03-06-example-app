@@ -4,6 +4,7 @@ import { DetailComponent } from './product/detail/detail.component';
 import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { PageNotFoundComponent } from './common/page-not-found/page-not-found.component';
+import { ProfileComponent } from './user/profile/profile.component';
 
 export const routes: Routes = [
     {
@@ -26,6 +27,10 @@ export const routes: Routes = [
     {
         path: 'admin/dashboard',
         component: DashboardComponent,
+    },
+    {
+        path: 'user/profile',
+        component: ProfileComponent,
     },
     {
         path: '**',

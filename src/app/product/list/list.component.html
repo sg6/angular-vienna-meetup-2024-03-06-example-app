@@ -1,1 +1,24 @@
-<p>list works!</p>
+<h1>Product Listing</h1>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Suggested Retail Price</th>
+        <th scope="col">Image</th>
+      </tr>
+    </thead>
+    <tbody>
+        @for (product of products; track $index) {
+            <tr>
+                <th scope="row"> {{ product.id }} </th>
+                <td>{{ product.product_name }}</td>
+                <td>{{ product.product_price | currency: 'EUR' }}</td>
+                <td>{{ product.suggested_retail_price | currency: 'EUR' }}</td>
+                <td><img [src]="product.image" [alt]="product.product_name" /></td>
+            </tr>
+        }
+    </tbody>
+</table>
