@@ -26,8 +26,15 @@ export class DetailComponent implements OnInit {
   ngOnInit(): void {
       this.route.params.subscribe(params => {
         this.routeId = params['id'];
-        this.getProductDetails();
       });
+
+      this.route.data.subscribe(data => {
+        console.log(data);
+        const product: Product = data['product'];
+        if (product) {
+          this.product = product;
+        }
+      })
   }
 
   async getProductDetails() {

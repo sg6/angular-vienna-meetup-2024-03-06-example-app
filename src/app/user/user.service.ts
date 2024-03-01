@@ -7,7 +7,7 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 })
 export class UserService {
 
-  user: User = { role: 'Visitor' };
+  user: User = { role: 'User' };
   user$: BehaviorSubject<User> = new BehaviorSubject(this.user);
 
   constructor() { }

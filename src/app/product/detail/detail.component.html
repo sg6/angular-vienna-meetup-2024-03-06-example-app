@@ -1,4 +1,8 @@
-<p>detail works!</p>
+<h1>Product Details</h1>
+
+@if (product) {
+    <h2>{{ product.product_name}}</h2>
+}
 
 @if (routeId) {
     <p>product id is {{ routeId }}</p>

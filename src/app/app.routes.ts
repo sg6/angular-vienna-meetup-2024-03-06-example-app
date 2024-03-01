@@ -6,6 +6,7 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { PageNotFoundComponent } from './common/page-not-found/page-not-found.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { authGuard } from './guards/auth.guard';
+import { productResolver } from './guards/product.resolver';
 
 export const routes: Routes = [
     {
@@ -24,7 +25,8 @@ export const routes: Routes = [
     {
         path: 'product/detail/:id',
         component: DetailComponent,
-        canActivate: [authGuard]
+        canActivate: [authGuard],
+        resolve: { product: productResolver },
     },
     {
         path: 'admin/dashboard',
