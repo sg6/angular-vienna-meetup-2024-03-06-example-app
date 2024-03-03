@@ -29,7 +29,6 @@ export class DetailComponent implements OnInit {
       });
 
       this.route.data.subscribe(data => {
-        console.log(data);
         const product: Product = data['product'];
         if (product) {
           this.product = product;

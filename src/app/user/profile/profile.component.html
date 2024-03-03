@@ -3,3 +3,17 @@
 <a class="btn btn-info" (click)="changeRole('Visitor')">Log Out</a> 
 <a class="btn btn-info" (click)="changeRole('User')">Log In</a>
 <a class="btn btn-info" (click)="changeRole('Admin')">Admin Log In</a>
+
+<hr />
+
+<form [formGroup]="form">
+    <div class="form-control">
+        <label for="username">
+            Username<br />
+            <input type="text" formControlName="username" name="username" />
+        </label>
+    </div>
+    <div class="form-control">
+        <button class="btn btn-primary" (click)="saved = true">Save</button>
+    </div>
+</form>

@@ -7,6 +7,7 @@ import { PageNotFoundComponent } from './common/page-not-found/page-not-found.co
 import { ProfileComponent } from './user/profile/profile.component';
 import { authGuard } from './guards/auth.guard';
 import { productResolver } from './guards/product.resolver';
+import { canDeactivateGuard } from './guards/can-deactivate.guard';
 
 export const routes: Routes = [
     {
@@ -35,6 +36,7 @@ export const routes: Routes = [
     {
         path: 'user/profile',
         component: ProfileComponent,
+        canDeactivate: [canDeactivateGuard]
     },
     {
         path: '**',
