@@ -12,11 +12,20 @@ export const cachingInterceptor: HttpInterceptorFn =
 
         const cacheService = inject(CachingService);
 
-        const cachedResponse = cacheService.getCache(req.urlWithParams);
-        if (cachedResponse) {
-            return of(cachedResponse);
+        const cachedEntry = cacheService
+            .getCache(req.urlWithParams);
+        if (cachedEntry) {
+            // valid for one minute
+            const isCacheValid =
+                (Date.now() - cachedEntry.timestamp) < 60_000;
+            if (isCacheValid) {
+                // Serve from cache
+                return of(cachedEntry.response);
+            } else {
+                // Cache has expired, remove it
+                cacheService.deleteCache(req.urlWithParams);
+            }
         }
-
 
         return next(req).pipe(
             tap(event => {
