@@ -16,7 +16,7 @@ export class ProductService {
 
   async getAllProducts(): Promise<Product[]> {
     try {
-      const products = await firstValueFrom(this.http.get<Product[]>(this.API_URL + 'products'));
+      const products = await firstValueFrom(this.http.get<Product[]>(this.API_URL + 'products?delay=3000'));
       return products;
     } catch (error) {
       console.error(error);
